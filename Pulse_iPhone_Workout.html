@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#10120f">
+<title>Pulse — 20 Minute Workout</title>
+<style>
+:root{--bg:#10120f;--panel:#1a1d19;--panel2:#232720;--text:#f4f5ef;--muted:#a5ab9f;--lime:#c7f36b;--line:#34392f;--orange:#ffb56b}
+*{box-sizing:border-box}html{background:var(--bg);color-scheme:dark}body{margin:0;background:radial-gradient(ellipse at 90% -10%,#2b3920 0,transparent 42%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;padding:0 0 calc(28px + env(safe-area-inset-bottom));}
+button{font:inherit;cursor:pointer;border:0} .app{max-width:520px;margin:0 auto;padding:calc(16px + env(safe-area-inset-top)) 18px 24px}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.6px}.logo{display:grid;place-items:center;background:var(--lime);color:#111;border-radius:12px;width:38px;height:38px;font-size:22px}.date{font-size:12px;color:var(--muted);text-align:right;line-height:1.6}
+.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--lime);font-weight:800;text-transform:uppercase}.hero h1{font-size:35px;line-height:1.03;letter-spacing:-1.5px;margin:9px 0 10px}.hero p{color:var(--muted);font-size:14px;line-height:1.5;margin:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:20px 0 22px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:14px 12px}.stat strong{display:block;font-size:22px;letter-spacing:-.5px}.stat span{display:block;font-size:11px;color:var(--muted);margin-top:5px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:17px;margin:14px 0}.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.card h2{font-size:17px;margin:0;letter-spacing:-.3px}.pill{background:#303b23;color:var(--lime);border-radius:30px;padding:7px 10px;font-size:11px;font-weight:800}.muted{color:var(--muted)}.progress-line{height:6px;background:#34392f;border-radius:20px;overflow:hidden;margin:14px 0 5px}.progress-line div{height:100%;width:0;background:var(--lime);transition:width .25s}.progress-copy{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.timer-card{background:linear-gradient(145deg,#28351d,#1b2117 70%);border:1px solid #455333;border-radius:25px;padding:20px;margin:18px 0}.timer-top{display:flex;justify-content:space-between;align-items:center}.timer-top span{font-size:11px;color:#d3e6b7;letter-spacing:1.2px;text-transform:uppercase;font-weight:800}.timer{font-size:62px;letter-spacing:-3px;font-weight:750;text-align:center;margin:16px 0 3px;font-variant-numeric:tabular-nums}.timer-sub{text-align:center;color:#d0d8c7;font-size:12px;margin-bottom:17px}.timer-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.btn{border-radius:14px;padding:14px 12px;font-weight:800}.primary{background:var(--lime);color:#141710}.secondary{background:#37422d;color:white;border:1px solid #526243}.timer-actions .wide{grid-column:1/-1}.current-ex{font-size:18px;font-weight:800;text-align:center;margin-top:4px}.current-detail{text-align:center;font-size:12px;color:#d0d8c7;margin-top:5px;min-height:18px}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin:24px 2px 12px}.section-title h2{margin:0;font-size:20px;letter-spacing:-.5px}.section-title span{font-size:11px;color:var(--muted)}
+.workout-list{display:flex;flex-direction:column;gap:9px}.exercise{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:12px}.num{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;background:var(--panel2);border-radius:12px;font-size:13px;font-weight:800;color:var(--lime)}.ex-info{flex:1;min-width:0}.ex-info strong{display:block;font-size:14px}.ex-info small{display:block;color:var(--muted);font-size:11px;margin-top:4px;line-height:1.35}.ex-time{font-size:12px;font-weight:800;color:var(--lime);white-space:nowrap}.check{width:25px;height:25px;border:1px solid #505747;border-radius:50%;display:grid;place-items:center;background:transparent;color:#111;font-size:13px;flex:0 0 25px}.check.done{background:var(--lime);border-color:var(--lime)}.exercise.completed{opacity:.58}.exercise.completed .ex-info strong{text-decoration:line-through}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:14px}.day{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 0;text-align:center}.day b{display:block;font-size:11px}.day small{display:block;font-size:9px;color:var(--muted);margin-top:5px}.day.active{border-color:var(--lime);background:#2a351f}.note{font-size:12px;color:var(--muted);line-height:1.55;margin:12px 2px}.bottom{position:sticky;bottom:8px;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:8px;background:#10120fdd;backdrop-filter:blur(12px);border-radius:18px}.bottom button{padding:15px 10px;border-radius:14px;font-weight:800}.bottom .primary{background:var(--lime);color:#141710}.bottom .secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}
+.toast{position:fixed;bottom:calc(95px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(--lime);color:#141710;padding:11px 16px;border-radius:12px;font-size:12px;font-weight:800;display:none;white-space:nowrap;z-index:4}.toast.show{display:block}
+@media(min-width:600px){.app{padding-top:28px}.hero h1{font-size:42px}}
+</style>
+</head>
+<body>
+<main class="app">
+  <div style="background:#2a351f;border:1px solid #455333;color:#dff4c4;border-radius:13px;padding:11px 13px;font-size:12px;line-height:1.45;margin-bottom:14px">iPhone tip: interactive timer/buttons need a browser that runs JavaScript. If this is open in the Files preview, use Share → Open in Safari/browser instead.</div>
+  <header class="top">
+    <div class="brand"><div class="logo">ϟ</div><div>PULSE<span style="color:var(--lime)">.</span></div></div>
+    <div class="date" id="today">YOUR DAILY SESSION<br>20 MIN • HOME</div>
+  </header>
+  <section class="hero">
+    <div class="eyebrow">Consistency beats intensity</div>
+    <h1>Show up.<br>Get stronger.</h1>
+    <p>Your intermediate home workout. Short, focused, repeatable.</p>
+  </section>
+  <section class="stats">
+    <div class="stat"><strong>20 <small style="font-size:12px;color:var(--muted)">min</small></strong><span>SESSION</span></div>
+    <div class="stat"><strong>5 <small style="font-size:12px;color:var(--muted)">days</small></strong><span>PER WEEK</span></div>
+    <div class="stat"><strong id="doneCount">0/8</strong><span>COMPLETED</span></div>
+  </section>
+  <section class="timer-card">
+    <div class="timer-top"><span>Workout timer</span><span id="timerMode">READY</span></div>
+    <div class="timer" id="timer">02:00</div>
+    <div class="timer-sub" id="timerSub">Warm-up • Start when you're ready</div>
+    <div class="current-ex" id="currentEx">Warm-up</div>
+    <div class="current-detail" id="currentDetail">Marching · arm circles · side steps</div>
+    <div class="timer-actions" style="margin-top:19px">
+      <button class="btn primary" id="startBtn">▶ Start</button>
+      <button class="btn secondary" id="resetBtn">↺ Reset timer</button>
+      <button class="btn secondary wide" id="nextBtn">Next exercise →</button>
+    </div>
+  </section>
+  <section class="card">
+    <div class="card-head"><h2>Today's progress</h2><span class="pill" id="progressLabel">0% DONE</span></div>
+    <div class="progress-line"><div id="progressBar"></div></div>
+    <div class="progress-copy"><span id="progressText">0 of 8 exercises checked off</span><span>Let's go</span></div>
+  </section>
+  <div class="section-title"><h2>Workout plan</h2><span>Tap ✓ when done</span></div>
+  <section class="workout-list" id="workoutList"></section>
+  <div class="section-title"><h2>Your week</h2><span>Build the habit</span></div>
+  <section class="card">
+    <div class="card-head"><h2>Weekly rhythm</h2><span class="pill">5 ACTIVE DAYS</span></div>
+    <div class="week">
+      <div class="day"><b>MON</b><small>Workout</small></div><div class="day"><b>TUE</b><small>Workout</small></div><div class="day"><b>WED</b><small>Walk</small></div><div class="day"><b>THU</b><small>Workout</small></div><div class="day"><b>FRI</b><small>Workout</small></div><div class="day"><b>SAT</b><small>Walk</small></div><div class="day"><b>SUN</b><small>Rest</small></div>
+    </div>
+    <p class="note">On walking days, aim for a brisk walk at a pace where you can still talk. Rest when you need it.</p>
+  </section>
+  <section class="card">
+    <div class="card-head"><h2>Keep it safe</h2><span style="font-size:18px">♥</span></div>
+    <p class="note" style="margin:12px 0 0">Fat loss happens across the body; ab exercises can't selectively burn belly or love-handle fat. Use controlled reps, breathe normally, and stop if you feel chest pain, dizziness, unusual breathlessness or a racing heartbeat. Because of your previously mentioned heartbeat and lower-back concerns, get medical clearance before vigorous exercise if those symptoms persist. Skip any movement that causes back pain.</p>
+  </section>
+  <div class="bottom">
+    <button class="primary" id="startWorkout">Start workout</button>
+    <button class="secondary" id="clearChecks">Clear checkmarks</button>
+  </div>
+</main>
+<div class="toast" id="toast">Nice work — keep going!</div>
+<script>
+(function(){
+'use strict';
+const exercises=[
+ {name:'Warm-up',detail:'Marching · arm circles · side steps',time:120,label:'02:00',prescription:'Move smoothly; get warm'},
+ {name:'Bodyweight squats',detail:'Thighs · glutes',time:90,label:'01:30',prescription:'12–15 reps × 2 sets; controlled form'},
+ {name:'Step jacks',detail:'Low-impact cardio',time:120,label:'02:00',prescription:'40 sec work / 20 sec rest × 2'},
+ {name:'Reverse lunges',detail:'Leg strength',time:120,label:'02:00',prescription:'8–10 per leg × 2 sets; use support if needed'},
+ {name:'Forearm plank',detail:'Core strength',time:90,label:'01:30',prescription:'20–30 sec × 3; keep breathing'},
+ {name:'Cross-body knee raises',detail:'Standing core',time:120,label:'02:00',prescription:'12 per side × 2 sets'},
+ {name:'Glute bridges',detail:'Glutes · hip stability',time:120,label:'02:00',prescription:'12–15 reps × 2 sets'},
+ {name:'Cool-down',detail:'Slow walking · gentle stretching',time:180,label:'03:00',prescription:'Slow down gradually'}
+];
+let idx=0,remaining=exercises[0].time,interval=null,running=false,completed=new Set(),deadline=0;
+const $=id=>document.getElementById(id);
+function fmt(s){s=Math.max(0,Math.ceil(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function showToast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');window.setTimeout(()=>el.classList.remove('show'),2200)}
+function renderList(){
+ $('workoutList').innerHTML=exercises.map((e,i)=>'<div class="exercise '+(completed.has(i)?'completed':'')+'" id="ex'+i+'"><div class="num">'+String(i+1).padStart(2,'0')+'</div><div class="ex-info"><strong>'+e.name+'</strong><small>'+e.detail+'<br>'+e.prescription+'</small></div><div class="ex-time">'+e.label+'</div><button type="button" class="check '+(completed.has(i)?'done':'')+'" aria-label="Mark '+e.name+' complete" data-check="'+i+'">'+(completed.has(i)?'✓':'')+'</button></div>').join('');
+ $('doneCount').textContent=completed.size+'/8';$('progressLabel').textContent=Math.round(completed.size/8*100)+'% DONE';$('progressBar').style.width=(completed.size/8*100)+'%';$('progressText').textContent=completed.size+' of 8 exercises checked off';
+}
+function paintTimer(){
+ $('timer').textContent=fmt(remaining);$('timerMode').textContent=running?'RUNNING':'READY';
+ $('timerSub').textContent=running?'Stay controlled · breathe steadily':'Exercise timer · adjust pace as needed';
+ $('currentEx').textContent=exercises[idx].name;$('currentDetail').textContent=exercises[idx].detail;
+ $('startBtn').textContent=running?'Ⅱ Pause':'▶ Start';
+}
+function stop(){if(interval!==null){window.clearInterval(interval);interval=null}running=false;deadline=0;paintTimer()}
+function selectExercise(n){stop();idx=Math.max(0,Math.min(exercises.length-1,n));remaining=exercises[idx].time;paintTimer()}
+function tick(){remaining=Math.max(0,Math.ceil((deadline-Date.now())/1000));paintTimer();if(remaining<=0){stop();completed.add(idx);renderList();showToast(idx===exercises.length-1?'Session finished — great work!':'Exercise complete — move to the next one');if(idx<exercises.length-1)selectExercise(idx+1)}}
+function start(){if(running){stop();return}if(remaining<=0)remaining=exercises[idx].time;running=true;deadline=Date.now()+remaining*1000;paintTimer();interval=window.setInterval(tick,250)}
+function reset(){stop();remaining=exercises[idx].time;paintTimer()}
+$('startBtn').addEventListener('click',start);
+$('resetBtn').addEventListener('click',reset);
+$('nextBtn').addEventListener('click',()=>selectExercise(idx+1));
+$('startWorkout').addEventListener('click',()=>{selectExercise(0);start();window.scrollTo(0,0)});
+$('clearChecks').addEventListener('click',()=>{completed.clear();renderList();showToast('Checkmarks cleared')});
+$('workoutList').addEventListener('click',ev=>{const b=ev.target.closest('[data-check]');if(!b)return;const n=Number(b.getAttribute('data-check'));if(completed.has(n))completed.delete(n);else completed.add(n);renderList();if(completed.size===exercises.length)showToast('Workout complete. Proud of you!')});
+const now=new Date();$('today').innerHTML=now.toLocaleDateString('en-IN',{weekday:'short',month:'short',day:'numeric'}).toUpperCase()+'<br>20 MIN • HOME';
+const dayMap={1:0,2:1,3:2,4:3,5:4,6:5,0:6};const days=document.querySelectorAll('.day');if(days[dayMap[now.getDay()]])days[dayMap[now.getDay()]].classList.add('active');
+renderList();paintTimer();
+})();
+</script>
+</body>
+</html>
